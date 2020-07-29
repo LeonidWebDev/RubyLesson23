@@ -45,8 +45,9 @@ post '/visit_form/attempt' do
   @username = params[:username]
   @userphone = params[:userphone]
   @userdate = params[:userdate]
+  @color = params[:colorpicker]
   f = File.open "./public/users.txt", "a"
-  f.write "Master: #{@master}, User: #{@username}, Phone: #{@userphone}, Time: #{@userdate}\n" 
+  f.write "Master: #{@master}, User: #{@username}, Phone: #{@userphone}, Time: #{@userdate}, Color: #{@color}\n" 
   f.close
 
   erb :visit_form
