@@ -1,0 +1,6 @@
+User: admin, Phone: 28728727872, Time: 22 002 34
+User: raf, Phone: 28728727872, Time: 23 41 25
+Master: Whalter White, User: , Phone: , Time: 
+Master: Jessi Pinkman, User: , Phone: , Time: 
+Master: Whalter White, User: , Phone: , Time: 
+Master: Gus Fring, User: , Phone: , Time: 
