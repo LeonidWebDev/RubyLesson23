@@ -40,20 +40,32 @@ get '/contacts' do
   erb :contacts
 end
 
-post '/visit_form/attempt' do
+post '/visit_form' do
   @master = params[:master]
-  @username = params[:username]
+  @clientname = params[:clientname]
   @userphone = params[:userphone]
   @userdate = params[:userdate]
   @color = params[:colorpicker]
+
+  hh = {:clientname => "Введите имя",
+        :userphone => "Введите номер телефона",
+        :userdate => "Введите время посещения"}
+  
+  hh.each do |key, value|
+    if params[key] == ""
+      @error = hh[key]
+      return erb :visit_form
+    end
+  end
+
   f = File.open "./public/users.txt", "a"
-  f.write "Master: #{@master}, User: #{@username}, Phone: #{@userphone}, Time: #{@userdate}, Color: #{@color}\n" 
+  f.write "Master: #{@master}, User: #{@clientname}, Phone: #{@userphone}, Time: #{@userdate}, Color: #{@color}\n" 
   f.close
 
   erb :visit_form
 end  
 
-post '/contacts/attempt' do
+post '/contacts' do
   @usermail = params[:userMail]
   @usertext = params[:userText]
   f = File.open "./public/contacts.txt", "a"

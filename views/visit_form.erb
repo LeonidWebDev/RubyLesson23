@@ -1,16 +1,16 @@
 <h2>Записаться</h2>
 
 
-<form action="/visit_form/attempt" method="POST">
+<form action="/visit_form" method="POST">
   <label for="masterSelect1">Выберите мастера</label>
   <select class="form-control mybg" name="master" id="masterSelect1">
-    <option>1.Whalter White</option>
-    <option class="jessi">2.Jessi Pinkman</option>
-    <option>3.Gus Fring</option>
+    <option>1. Whalter White</option>
+    <option class="jessi">2. Jessi Pinkman</option>
+    <option>3. Gus Fring</option>
   </select>
   <div class="form-group">
     <label for="exampleInputEmail1">Ваше имя</label>
-    <input type="text" class="form-control" name="username" id="exampleInputEmail1" placeholder="Введите имя..." aria-describedby="namelHelp">
+    <input type="text" class="form-control" name="clientname" id="exampleInputEmail1" placeholder="Введите имя..." aria-describedby="namelHelp">
     <small id="emailHelp" class="form-text text-muted">Здесь Вы можете оставить ваше имя.</small>
   </div>
   <div class="form-group">
@@ -46,6 +46,7 @@
 </form>
 
 <script type="text/javascript">
+
   $(".mybg").css("background-color", "blue")
   $(".mybg").css("color", "white")
   $(".jessi").css("background-color", "pink")
@@ -54,4 +55,6 @@
   $('select[name="colorpicker"]').simplecolorpicker(); 
 
   
+
+     
 </script>
