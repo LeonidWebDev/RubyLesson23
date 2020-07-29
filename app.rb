@@ -41,11 +41,10 @@ get '/contacts' do
 end
 
 post '/visit_form/attempt' do
-  session[:identity] = params['username']
-  @master = params['master']
-  @username = params['username']
-  @userphone = params['userphone']
-  @userdate = params['userdate']
+  @master = params[:master]
+  @username = params[:username]
+  @userphone = params[:userphone]
+  @userdate = params[:userdate]
   f = File.open "./public/users.txt", "a"
   f.write "Master: #{@master}, User: #{@username}, Phone: #{@userphone}, Time: #{@userdate}\n" 
   f.close
@@ -54,9 +53,8 @@ post '/visit_form/attempt' do
 end  
 
 post '/contacts/attempt' do
-  session[:identity] = params['username']
-  @usermail = params['userMail']
-  @usertext = params['userText']
+  @usermail = params[:userMail]
+  @usertext = params[:userText]
   f = File.open "./public/contacts.txt", "a"
   f.write "Mail: #{@usermail}, Message: #{@usertext}\n" 
   f.close
@@ -66,8 +64,8 @@ end
 
 post '/login/attempt' do
   session[:identity] = params['username']
-  @username = params['username']
-  @userpassword = params['userpassword']
+  @username = params[:username]
+  @userpassword = params[:userpassword]
   if @username == "admin" && @userpassword == "secret"
     erb :admin_room
   else 
