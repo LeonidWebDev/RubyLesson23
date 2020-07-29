@@ -5,3 +5,6 @@ Master: Jessi Pinkman, User: , Phone: , Time:
 Master: Whalter White, User: , Phone: , Time: 
 Master: Gus Fring, User: , Phone: , Time: 
 Master: 2.Jessi Pinkman, User: jessiP, Phone: 666777, Time: 1305
+Master: 1.Whalter White, User: , Phone: , Time: 
+Master: 1.Whalter White, User: , Phone: , Time: 
+Master: 2.Jessi Pinkman, User: admin, Phone: 666777, Time: 22 002 34
