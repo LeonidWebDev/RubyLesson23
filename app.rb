@@ -66,11 +66,42 @@ post '/visit_form' do
 end  
 
 post '/contacts' do
+  require 'pony'
   @usermail = params[:userMail]
   @usertext = params[:userText]
+
+  hh = {:userMail => "Введите почтовый адрес",
+        :userText => "Введите интересующий тариф"}
+  
+  hh.each do |key, value|
+    if params[key] == ""
+      @error = hh[key]
+      return erb :contacts
+    end
+  end
+
   f = File.open "./public/contacts.txt", "a"
   f.write "Mail: #{@usermail}, Message: #{@usertext}\n" 
   f.close
+
+  Pony.mail(
+  :mail => params[:userMail],
+  :body => params[:userText],
+  :to => 'Leon.Work.g@gmail.com',
+  :subject => params[:userMail] + " has contacted you",
+  :body => params[:userText],
+  :port => '587',
+  :via => :smtp,
+  :via_options => { 
+    :address              => 'smtp.gmail.com', 
+    :port                 => '587', 
+    :enable_starttls_auto => true, 
+    :user_name            => 'lumbee', 
+    :password             => 'p@55w0rd', 
+    :authentication       => :plain, 
+    :domain               => 'localhost.localdomain'
+  })
+
 
   erb :contacts
 end
